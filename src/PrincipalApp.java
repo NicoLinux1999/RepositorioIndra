@@ -143,6 +143,57 @@ public class PrincipalApp {
             System.out.println("Evento no encontrado.");
         }
     }
+    
+    public static void menuUsuarios() {
+        Scanner sc = new Scanner(System.in);
+        int opcion;
+        
+        do {
+            System.out.println("\n--- Menú de Gestión de Usuarios ---");
+            System.out.println("1. Mostrar usuarios");
+            System.out.println("2. Inscribir usuario");
+            System.out.println("3. Volver al menú principal");
+            System.out.print("Seleccione una opción: ");
+            opcion = sc.nextInt();
+            sc.nextLine();  
+            
+            switch (opcion) {
+                case 1:
+                    mostrarUsuarios();
+                    break;
+                case 2:
+                    inscribirUsuario();
+                    break;
+                case 3:
+                    System.out.println("Volviendo al menú principal...");
+                    break;
+                default:
+                    System.out.println("Opción inválida.");
+            }
+        } while (opcion != 3);
+    }
+
+    
+    public static void mostrarUsuarios() {
+        if (usuarios.isEmpty()) {
+            System.out.println("No hay usuarios inscritos.");
+        } else {
+            System.out.println("Usuarios:");
+            for (String usuario : usuarios) {
+                System.out.println("- " + usuario);
+            }
+        }
+    }
+
+    
+    public static void inscribirUsuario() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Ingrese el nombre del usuario a inscribir: ");
+        String usuario = sc.nextLine();
+        usuarios.add(usuario);
+        System.out.println("Usuario '" + usuario + "' inscrito.");
+    }
+
 	
 	
 	
